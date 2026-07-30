@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regue a Planta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #2b1d38;
+            background-image: 
+                radial-gradient(#3d2950 15%, transparent 16%),
+                radial-gradient(#3d2950 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            font-family: 'Press Start 2P', monospace;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Moldura estilo Pixel Art para o vaso e flor */
+        .flower-card {
+            background-color: #1a1025;
+            border: 4px solid #fff;
+            box-shadow: 
+                0 0 0 4px #1a1025,
+                0 0 0 8px #ff79c6,
+                8px 8px 0px 8px rgba(0,0,0,0.5);
+            padding: 40px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* SVG Pixel Art da Flor */
+        .pixel-flower {
+            width: 160px;
+            height: 160px;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.3));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Botão Pixel Art Amarelo */
+        .btn-pixel {
+            font-family: 'Press Start 2P', monospace;
+            font-size: 14px;
+            text-decoration: none;
+            color: #2b1d38;
+            background-color: #f1fa8c;
+            padding: 18px 28px;
+            border: none;
+            position: relative;
+            cursor: pointer;
+            text-transform: uppercase;
+            display: inline-block;
+
+            /* Visual de borda pixelada simulação 8-bit */
+            box-shadow: 
+                -4px 0 0 0 #000,
+                 4px 0 0 0 #000,
+                 0 -4px 0 0 #000,
+                 0  4px 0 0 #000,
+                 inset -4px -4px 0 0 #f1c40f,
+                 inset  4px  4px 0 0 #fff;
+            transition: transform 0.1s, background-color 0.1s;
+        }
+
+        .btn-pixel:hover {
+            background-color: #ffb86c;
+            transform: scale(1.05);
+            box-shadow: 
+                -4px 0 0 0 #000,
+                 4px 0 0 0 #000,
+                 0 -4px 0 0 #000,
+                 0  4px 0 0 #000,
+                 inset -4px -4px 0 0 #e67e22,
+                 inset  4px  4px 0 0 #fff;
+        }
+
+        .btn-pixel:active {
+            transform: scale(0.98) translateY(2px);
+            box-shadow: 
+                -4px 0 0 0 #000,
+                 4px 0 0 0 #000,
+                 0 -4px 0 0 #000,
+                 0  4px 0 0 #000,
+                 inset  4px  4px 0 0 #e67e22;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="flower-card">
+            <!-- Flor em Pixel Art embutida via SVG -->
+            <svg class="pixel-flower" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <!-- Pétalas externas -->
+                <rect x="7" y="1" width="2" height="2" fill="#f1fa8c"/>
+                <rect x="4" y="2" width="2" height="2" fill="#ffb86c"/>
+                <rect x="10" y="2" width="2" height="2" fill="#ffb86c"/>
+                <rect x="2" y="4" width="2" height="2" fill="#ffb86c"/>
+                <rect x="12" y="4" width="2" height="2" fill="#ffb86c"/>
+                <rect x="1" y="7" width="2" height="2" fill="#f1fa8c"/>
+                <rect x="13" y="7" width="2" height="2" fill="#f1fa8c"/>
+                <rect x="2" y="10" width="2" height="2" fill="#ffb86c"/>
+                <rect x="12" y="10" width="2" height="2" fill="#ffb86c"/>
+
+                <!-- Pétalas centrais -->
+                <rect x="6" y="3" width="4" height="2" fill="#ff5555"/>
+                <rect x="3" y="6" width="2" height="4" fill="#ff5555"/>
+                <rect x="11" y="6" width="2" height="4" fill="#ff5555"/>
+                <rect x="6" y="11" width="4" height="2" fill="#ff5555"/>
+
+                <!-- Miolo -->
+                <rect x="6" y="6" width="4" height="4" fill="#ffb86c"/>
+                <rect x="7" y="7" width="2" height="2" fill="#f1fa8c"/>
+
+                <!-- Caule -->
+                <rect x="7" y="12" width="2" height="4" fill="#50fa7b"/>
+
+                <!-- Folhas -->
+                <rect x="5" y="13" width="2" height="1" fill="#50fa7b"/>
+                <rect x="9" y="14" width="2" height="1" fill="#50fa7b"/>
+
+                <!-- Vaso -->
+                <rect x="5" y="14" width="6" height="2" fill="#ffb86c"/>
+                <rect x="6" y="15" width="4" height="1" fill="#bd93f9"/>
+            </svg>
+        </div>
+
+        <a href="mensagem.html" class="btn-pixel">regue a planta</a>
+    </div>
+
+</body>
+</html>
